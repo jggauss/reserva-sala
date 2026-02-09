@@ -1,5 +1,6 @@
 package com.alura.reserva_sala.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "reservas")
 public class Reserva {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +26,13 @@ public class Reserva {
     @NotNull(message = "A sala é obrigatória")
     private Sala sala;       // Referência à sala reservada
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(nullable = false)
     @FutureOrPresent(message = "O início não pode ser no passado")
     private LocalDateTime inicio;
 
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(nullable = false)
     private LocalDateTime fim;
 
@@ -37,8 +42,7 @@ public class Reserva {
     public Reserva() {}
 
     public Reserva(Usuario usuario, Sala sala, LocalDateTime inicio, LocalDateTime fim) {
-        validarDatas(inicio, fim);
-        validarSalaAtiva(sala);
+
 
         this.usuario = usuario;
         this.sala = sala;

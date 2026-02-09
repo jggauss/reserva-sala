@@ -17,16 +17,18 @@ public class Sala {
 
     // Capacidade positiva para garantir que a sala suporte reuniões
     @Positive(message = "A capacidade deve ser positiva")
-    private int capacidade;
+    private Integer capacidade;
 
     // Define se a sala está disponível para novas reservas (manutenção, etc.)
-    private boolean ativa = true;
+    private Boolean ativa = true;
 
+    // CONSTRUTOR VAZIO OBRIGATÓRIO PARA O HIBERNATE
 
-    public Sala(Long id, String nome, int capacidade, boolean ativa) {
-        if (capacidade <= 0) {
-            throw new IllegalArgumentException("A capacidade deve ser positiva.");
-        }
+    public Sala() {
+    }
+
+    public Sala(Long id, String nome, Integer capacidade, Boolean ativa) {
+
         this.id = id;
         this.nome = nome;
         this.capacidade = capacidade;
@@ -34,11 +36,11 @@ public class Sala {
     }
 
     // O método isAtiva é o "getter" para campos booleanos
-    public boolean isAtiva() {
+    public Boolean isAtiva() {
         return ativa;
     }
 
-    public void setAtiva(boolean ativa) {
+    public void setAtiva(Boolean ativa) {
         this.ativa = ativa;
     }
 
