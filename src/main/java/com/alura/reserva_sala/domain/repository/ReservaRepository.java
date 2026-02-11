@@ -1,6 +1,8 @@
 package com.alura.reserva_sala.domain.repository;
 
 import com.alura.reserva_sala.domain.model.Reserva;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -18,6 +20,5 @@ public interface ReservaRepository extends JpaRepository<Reserva, Long> {
     boolean existsConflito(Long salaId, LocalDateTime inicio, LocalDateTime fim);
 
     // Novo método para buscar reservas de um usuário específico
-    List<Reserva> findByUsuarioId(Long usuarioId);
-
+    Page<Reserva> findByUsuarioId(Long usuarioId, Pageable pageable);
 }

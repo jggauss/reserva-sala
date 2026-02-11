@@ -4,6 +4,7 @@ import com.alura.reserva_sala.domain.model.Sala;
 import com.alura.reserva_sala.domain.repository.SalaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service

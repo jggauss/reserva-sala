@@ -39,7 +39,8 @@ public class Reserva {
     @Enumerated(EnumType.STRING)
     private StatusReserva status;
 
-    public Reserva() {}
+    public Reserva() {
+    }
 
     public Reserva(Usuario usuario, Sala sala, LocalDateTime inicio, LocalDateTime fim) {
 
@@ -70,6 +71,30 @@ public class Reserva {
         }
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUsuario(@NotNull(message = "O usuário é obrigatório") Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setSala(@NotNull(message = "A sala é obrigatória") Sala sala) {
+        this.sala = sala;
+    }
+
+    public void setInicio(@FutureOrPresent(message = "O início não pode ser no passado") LocalDateTime inicio) {
+        this.inicio = inicio;
+    }
+
+    public void setFim(LocalDateTime fim) {
+        this.fim = fim;
+    }
+
+    public void setStatus(StatusReserva status) {
+        this.status = status;
+    }
+
     public void cancelar() {
         this.status = StatusReserva.CANCELADA;
     }
@@ -96,4 +121,7 @@ public class Reserva {
 
     public StatusReserva getStatus() {
         return status;
-    }}
+    }
+}
+
+

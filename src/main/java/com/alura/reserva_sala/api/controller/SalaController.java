@@ -5,6 +5,7 @@ import com.alura.reserva_sala.domain.service.SalaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController

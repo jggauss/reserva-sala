@@ -3,6 +3,7 @@ package com.alura.reserva_sala.domain.service;
 import com.alura.reserva_sala.domain.model.Usuario;
 import com.alura.reserva_sala.domain.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
